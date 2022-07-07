@@ -1,0 +1,12 @@
+<div>
+  <h1>
+    {{ component }}
+  </h1>
+  <p>{{recieveTestData}}</p>
+
+  <!-- TEST COMPONENT = APP COMPONENT -->
+  <app-test
+    [recieveAppData]="sendAppData"
+    (sendTestData)="recieveTestData=$event"
+  ></app-test>
+</div>
