@@ -20,27 +20,19 @@ import { Component } from "@angular/core";
       (sendTestData)="recieveTestData = $event"
       (sendTestArr)="recieveTestArr($event)"
     ></app-test>
-
-    <br /><br />
-
-    <h3>Local References</h3>
-    <label>Enter Name : </label>
-    <input type="text" class="form-control" #nameInput />
-    <br />
-    <br />
-    <button (click)="sendName(nameInput)">Send Name</button>
-    <h4>Name is {{ infoData }}</h4>
   </div> `,
 
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
   component = "App Component";
-  sendAppData = "From App to Test"; // DECLARING AS PROPERTY TO SEND DATA FROM APP COMPONENT TO CHILD COMPONENT
-  // THEN BIND IT TO CHILD SELECTOR
+
+  // SEND TO TEST COMPONENT
+  sendAppData = "From App to Test"; // DECLARING AS PROPERTY TO SEND DATA FROM APP COMPONENT TO CHILD COMPONENT,THEN BIND IT TO CHILD SELECTOR
   sendAppArr = [{ name: "Biswa", tech: "CSE" }];
 
-  recieveAppData = "";
+  // RECIEVE FROM TEST COMPONENT
+  recieveTestData = "";
 
   arrTest = [{ name: "Tushar", tech: "ETC" }];
   recieveTestArr(det: { name: string; tech: string }) {
@@ -48,10 +40,5 @@ export class AppComponent {
       name: det.name,
       tech: det.tech
     });
-  }
-
-  infoData = "";
-  sendName(data) {
-    this.infoData = data.value;
   }
 }
