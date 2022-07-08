@@ -23,7 +23,7 @@ import { Component } from "@angular/core";
 
     <br /><br />
 
-    <h2>Local References</h2>
+    <h3>Local References</h3>
     <label>Enter Name : </label>
     <input type="text" class="form-control" #nameInput />
     <br />
