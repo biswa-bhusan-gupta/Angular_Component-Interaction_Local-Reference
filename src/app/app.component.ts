@@ -9,7 +9,9 @@ import { Component } from "@angular/core";
       {{ component }}
     </h1>
     <p>{{ recieveTestData }}</p>
-
+    <p *ngFor="let i of arrTest">
+      Array Details from Test to App : {{ i.name }} {{ i.tech }}
+    </p>
     <!-- TEST COMPONENT = APP COMPONENT -->
     <app-test
       *ngFor="let i of sendAppArr"
@@ -29,5 +31,12 @@ export class AppComponent {
   sendAppArr = [{ name: "Biswa", tech: "CSE" }];
 
   recieveAppData = "";
-  recieveTestArr(r: { name: string; tech: string }) {}
+
+  arrTest = [{ name: "Tushar", tech: "ETC" }];
+  recieveTestArr(det: { name: string; tech: string }) {
+    this.arrTest.push({
+      name: det.name,
+      tech: det.tech
+    });
+  }
 }

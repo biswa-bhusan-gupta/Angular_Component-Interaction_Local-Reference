@@ -28,7 +28,7 @@ export class TestComponent {
 
   name = "Yash";
   tech = "IT";
-  sendTestArr = new EventEmitter<{ name: string; tech: string }>();
+  @Output() sendTestArr = new EventEmitter<{ name: string; tech: string }>();
   infoArr() {
     this.sendTestArr.emit({ name: this.name, tech: this.tech });
   }
