@@ -2,11 +2,26 @@
   <h1>
     {{ component }}
   </h1>
-  <p>{{recieveTestData}}</p>
-
+  <p>{{ recieveTestData }}</p>
+  <p *ngFor="let i of arrTest">
+    Array Details from Test to App : {{ i.name }} {{ i.tech }}
+  </p>
   <!-- TEST COMPONENT = APP COMPONENT -->
   <app-test
+    *ngFor="let i of sendAppArr"
+    [recieveAppArr]="i"
     [recieveAppData]="sendAppData"
-    (sendTestData)="recieveTestData=$event"
+    (sendTestData)="recieveTestData = $event"
+    (sendTestArr)="recieveTestArr($event)"
   ></app-test>
+
+  <br /><br />
+
+  <h2>Local References</h2>
+  <label>Enter Name : </label>
+  <input type="text" class="form-control" #nameInput />
+  <br />
+  <br />
+  <button (click)="sendName(nameInput)">Send Name</button>
+  <h4>Name is {{infoData}}</h4>
 </div>

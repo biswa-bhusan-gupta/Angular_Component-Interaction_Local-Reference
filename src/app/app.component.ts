@@ -20,6 +20,16 @@ import { Component } from "@angular/core";
       (sendTestData)="recieveTestData = $event"
       (sendTestArr)="recieveTestArr($event)"
     ></app-test>
+
+    <br /><br />
+
+    <h2>Local References</h2>
+    <label>Enter Name : </label>
+    <input type="text" class="form-control" #nameInput />
+    <br />
+    <br />
+    <button (click)="sendName(nameInput)">Send Name</button>
+    <h4>Name is {{ infoData }}</h4>
   </div> `,
 
   styleUrls: ["./app.component.css"]
@@ -38,5 +48,10 @@ export class AppComponent {
       name: det.name,
       tech: det.tech
     });
+  }
+
+  infoData = "";
+  sendName(data) {
+    this.infoData = data.value;
   }
 }
