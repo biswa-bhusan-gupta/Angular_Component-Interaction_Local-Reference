@@ -1,2 +1,2 @@
-## Angular: 8.Component-Interaction and Local Reference
+## Angular: 7.Component-Interaction and Local Reference
 Created with CodeSandbox
